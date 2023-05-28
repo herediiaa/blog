@@ -87,7 +87,15 @@ type Collection {
 union DocumentNode = Post | Folder
 
 type Post implements Node & Document {
+  author: String!
   title: String!
+  postSlug: String
+  description: String
+  pubDatetime: String
+  featured: Boolean
+  draft: Boolean
+  tags: [String]
+  ogImage: String
   body: JSON
   id: ID!
   _sys: SystemInfo!
@@ -101,6 +109,19 @@ input StringFilter {
   in: [String]
 }
 
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
 input RichTextFilter {
   startsWith: String
   eq: String
@@ -108,7 +129,15 @@ input RichTextFilter {
 }
 
 input PostFilter {
+  author: StringFilter
   title: StringFilter
+  postSlug: StringFilter
+  description: StringFilter
+  pubDatetime: DatetimeFilter
+  featured: BooleanFilter
+  draft: BooleanFilter
+  tags: StringFilter
+  ogImage: StringFilter
   body: RichTextFilter
 }
 
@@ -142,7 +171,15 @@ input DocumentMutation {
 }
 
 input PostMutation {
+  author: String
   title: String
+  postSlug: String
+  description: String
+  pubDatetime: String
+  featured: Boolean
+  draft: Boolean
+  tags: [String]
+  ogImage: String
   body: JSON
 }
 
