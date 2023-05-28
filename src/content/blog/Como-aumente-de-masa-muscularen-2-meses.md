@@ -9,6 +9,7 @@ pubDatetime: 2023-07-28T06:02:00.000Z
 featured: true
 tags:
   - Gym
+draft: true
 ---
 
 ﻿lorem
