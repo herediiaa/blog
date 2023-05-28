@@ -76,7 +76,8 @@ export default defineConfig({
             label:"Tags",
             name: "tags",
             type:"string",
-            list:true
+            list:true,
+            required:true
           },
           {
             type: "string",
